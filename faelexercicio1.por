@@ -11,6 +11,7 @@ maiores++
 menores++
     }
   }
-
+escreva("Maiores", maiores)
+escreva("Menores", menores)
 }
   }
