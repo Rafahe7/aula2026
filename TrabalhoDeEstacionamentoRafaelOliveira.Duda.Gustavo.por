@@ -106,7 +106,7 @@ programa
 	funcao listarVagas()
 	{
 		escreva("----- Lista de Vagas (1 a 30) ------\n")
-		// Começa em 1 para exibir corretamente de 1 a 30
+		
 		para (inteiro i = 1; i <= 30; i++)
 		{
 			se (vagas[i] == "")
