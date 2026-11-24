@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class BuscaNomes {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String[] nomes = new String[6];
+
+        System.out.print("Entrada: ");
+        for (int i = 0; i < nomes.length; i++) {
+            nomes[i] = scanner.next();
+        }
+        scanner.nextLine(); // Limpa a quebra de linha pendente no buffer
+
+        while (true) {
+            System.out.print("Buscar qual nome? ");
+            String busca = scanner.nextLine().trim();
+
+            // Condição de parada caso queira encerrar o programa
+            if (busca.equalsIgnoreCase("sair") || busca.isEmpty()) {
+                break;
+            }
+
+            int contador = 0;
+
+            for (int i = 0; i < nomes.length; i++) {
+                // Compara ignorando maiúsculas e minúsculas
+                if (nomes[i].equalsIgnoreCase(busca)) {
+                    System.out.println("Encontrado na posição " + (i + 1));
+                    contador++;
+                }
+            }
+
+            if (contador > 0) {
+                System.out.println(busca + " aparece " + contador + " vez(es).");
+            } else {
+                System.out.println(busca + " não foi encontrado.");
+            }
+        }
+
+        scanner.close();
+    }
+}
