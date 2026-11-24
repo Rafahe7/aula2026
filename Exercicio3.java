@@ -1,0 +1,24 @@
+import java.util.Scanner;
+public class Exercicio3{
+    public static void main(String[] args){
+        Scanner scan = new Scanner(System.in);
+        double[] salarios = new double [5];
+
+        double salarioFinal= 0;
+
+        for(int i=0; i < salarios.length; i++){
+            System.out.printf("\nDigite o %d salário: %n", i+1);
+            salarios[i] = scan.nextDouble();
+        }
+        scan.close();
+
+            for(int i=0; i < salarios.length; i++){
+            if(salarios[i] < 2000){
+                salarioFinal=salarios[i]*1.10;
+            }else{
+                salarioFinal=salarios[i];
+            }
+            System.out.printf("\nO salário do funcionário %d é: %.2f", i+1, salarioFinal);
+           }
+    }
+}
