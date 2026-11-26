@@ -1,42 +1,32 @@
 import java.util.Scanner;
 
-public class BuscaNomes {
+public class BuscaDeNomes {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
+
         String[] nomes = new String[6];
-
-        System.out.print("Entrada: ");
         for (int i = 0; i < nomes.length; i++) {
-            nomes[i] = scanner.next();
+            System.out.printf("Digite o %d° nome: %n", i+1);
+            nomes[i] = sc.next();
         }
-        scanner.nextLine(); // Limpa a quebra de linha pendente no buffer
 
-        while (true) {
-            System.out.print("Buscar qual nome? ");
-            String busca = scanner.nextLine().trim();
+        System.out.printf("Buscar qual nome? %n");
+        String busca = sc.next();
 
-            // Condição de parada caso queira encerrar o programa
-            if (busca.equalsIgnoreCase("sair") || busca.isEmpty()) {
-                break;
-            }
-
-            int contador = 0;
-
-            for (int i = 0; i < nomes.length; i++) {
-                // Compara ignorando maiúsculas e minúsculas
-                if (nomes[i].equalsIgnoreCase(busca)) {
-                    System.out.println("Encontrado na posição " + (i + 1));
-                    contador++;
-                }
-            }
-
-            if (contador > 0) {
-                System.out.println(busca + " aparece " + contador + " vez(es).");
-            } else {
-                System.out.println(busca + " não foi encontrado.");
+        int contador = 0;
+        for (int i = 0; i < nomes.length; i++) {
+            if (nomes[i].equalsIgnoreCase(busca)) {
+                System.out.println("Encontrado na posição " + i);
+                contador++;
             }
         }
 
-        scanner.close();
+        if (contador == 0) {
+            System.out.println(busca + " não foi encontrado.");
+        } else {
+            System.out.println(busca + " aparece " + contador + " vez(es).");
+        }
+
+        sc.close();
     }
 }
